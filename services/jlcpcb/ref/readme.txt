@@ -1,0 +1,7 @@
+- Open https://jlcpcb.com/capabilities/pcb-capabilities
+- Select Rigid PCB
+- Expand all items
+- Right-click "Inspect" to get Inspector view
+- Right-click on <div class="el-cllapse" role="tablist" aria-multiselectable="true"> that hold the relevant items
+- "Copy" -> "Inner HTML"
+- Merge into pcb_capabilities.html file and review differences

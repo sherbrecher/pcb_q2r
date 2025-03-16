@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8" />
+    <title>Generator</title>
+    <script src="popup.js"></script>
+</head>
+<style>
+    body {
+        background-color: #a3d3a4;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    div {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    p {
+        margin: 0;
+        color: #495057;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    img {
+        vertical-align: middle;
+        text-align: left;
+        float: left;
+        margin-right: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: 15px 0;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        white-space: pre-wrap;
+    }
+
+    th,
+    td {
+        background-color: #f5f5f5;
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #e2e2e2;
+        font-weight: bold;
+    }
+
+    th:first-child,
+    td:first-child {
+        width: 25px;
+    }
+
+    tr#service {
+        cursor: pointer;
+    }
+
+    tr#eda {
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        cursor: pointer;
+    }
+
+    tr:hover td {
+        background-color: #72bb76;
+        color: white;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        background-color: #388E3C;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+        background-color: #2E7D32;
+    }
+</style>
+
+<body>
+    <div>
+        <p>Choose the PCB manufacturing service where you configured your online quote and select EDA tool to generate design rules for.</p>
+        <p>After that click "Generate & Download" to get the EDA rules.</p>
+    </div>
+    <table id="services">
+        <tr>
+            <th></th>
+            <th>PCB service</th>
+            <th>Status</th>
+            <th>Clear cache</th>
+        </tr>
+    </table>
+    <table id="edas">
+        <tr>
+            <th></th>
+            <th>EDA Tool</th>
+        </tr>
+    </table>
+    <button id="generate">Generate & Download</button>
+    <p id="storageSize"></p>
+</body>
+
+</html>

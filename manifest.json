@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "PCB Q2R",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{24352bf8-1515-4079-a65d-6eea04b1d02f}"
+    }
+  },
+  "background": {
+    "scripts": [
+      "lib/jszip.min.js",
+      "background.js",
+      "services/pcbway/pcbway.js",
+      "services/jlcpcb/jlcpcb.js",
+      "edas/kicad/kicad.js"
+    ]
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://cart.jlcpcb.com/",
+    "https://jlcpcb.com/",
+    "https://www.pcbway.com/"
+  ],
+  "action": {
+    "default_title": "PCB Q2R",
+    "default_icon": "icons/icon.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Convert an online quote from a PCB manufacturer to design rules"
+    }
+  }
+}
