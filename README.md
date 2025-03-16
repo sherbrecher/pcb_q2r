@@ -16,9 +16,12 @@ To report a problem or a security vulnerability please [raise an issue](https://
 
 ## Installation
 
-### Install as official Add-on
+### Install signed xpi file
 
-- not yet available
+- Download latest xpi file from releases
+- Open "about:addons"
+- Click "Install Add-on From File..."
+- Select xpi file
 
 ### Install as temporary Add-on
 
