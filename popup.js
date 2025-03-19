@@ -124,31 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const generateButton = document.getElementById('generate');
             generateButton.addEventListener('click', () => {
-                //const impedanceFetch = {
-                //    "url": "https://jlcpcb.com/api/overseas-shop-cart/v1/shoppingCart/getImpedanceTemplateSettings",
-                //    "data": {
-                //        "method": "POST",
-                //        "headers": {
-                //            "Content-Type": "application/json",
-                //            "Cache-Control": "max-age=3600" // Cache for 1 hour
-                //        },
-                //        "body": JSON.stringify({
-                //            "stencilLayer": null,
-                //            "stencilPly": null,
-                //            "cuprumThickness": null,
-                //            "insideCuprumThickness": null
-                //        }),
-                //        "cache": "force-cache" // Try to use cached response first
-                //    }
-                //}
-                //fetch(impedanceFetch.url, impedanceFetch.data)
-                //    .then(response => response.json())
-                //    .then(data => {
-                //        console.log('Impedance template settings:', data);
-                //        //decode(result.jlcpcb.data, data);
-                //    });
-                //    return;
-
                 const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(cb => cb.value);
                 const selectedEdas = Array.from(document.querySelectorAll('input[name="eda"]:checked')).map(cb => cb.value);
 
@@ -171,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     }).then(response => {
                         if (response.status === 'success') {
                             let html = "Generation successful!";
-                            for (let i = 0; i < response.data["service"].warnings.length; i++) {
-                                html += "\r\n" + response.data["service"].warnings[i];
+                            for (let i = 0; i < response.data.service.warnings.length; i++) {
+                                html += "\r\n" + response.data.service.warnings[i];
                             }
                             resultText.innerText = html;
                         } else {
@@ -180,16 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             let html = "Generation failed!";
 
-                            if (response.data["service"].warnings.length > 0) {
-                                html = "\r\nWarnings:\r\n";
-                                for (let warning in response.data.warnings) {
-                                    html += "\r\n" + warning;
+                            if (response.data.service.warnings.length > 0) {
+                                html += "\r\nWarnings:";
+                                for (let warning in response.data.service.warnings) {
+                                    html += "\r\n" + response.data.service.warnings[warning];
                                 }
                             }
-                            if (response.data["service"].errors.length > 0) {
-                                html = "\r\nErrors:\r\n";
-                                for (let error in response.data["service"].errors) {
-                                    html += "\r\n" + error;
+                            if (response.data.service.errors.length > 0) {
+                                html += "\r\nErrors:";
+                                for (let error in response.data.service.errors) {
+                                    html += "\r\n" + response.data.service.errors[error];
                                 }
                             }
 
