@@ -28,7 +28,7 @@
   ],
   "action": {
     "default_title": "PCB Q2R",
-    "default_icon": "icons/icon.png"
+    "default_icon": "res/icons/icon.png"
   },
   "commands": {
     "_execute_action": {
