@@ -4,7 +4,7 @@ const SHOW_QUOTE_CHANGES = true;
 
 // global functions
 function downloadFile(json, filename) {
-	const modifiedData = JSON.stringify(data, null, 2);
+	const modifiedData = JSON.stringify(json, null, 2);
 	const blob = new Blob([modifiedData], { type: 'application/json' });
 	const url = URL.createObjectURL(blob);
 
