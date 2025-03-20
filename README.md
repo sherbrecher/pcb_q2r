@@ -4,7 +4,7 @@ PCB Q2R (Quote 2 Rules) is a Mozilla Firefox Extension that analyses the online 
 
 PCB Q2R is under development and might still contain various bugs.
 
-The project is licensed as [AS-IS](https://github.com/sherbrecher/pcb_q2r/LICENSE.md).
+The project is licensed as AS-IS.
 
 To report a problem or a security vulnerability please [raise an issue](https://github.com/sherbrecher/pcb_q2r/issues).
 
@@ -44,6 +44,10 @@ To report a problem or a security vulnerability please [raise an issue](https://
 - Select PCB manufacturer and EDA tool
 - Click "Generate & Download"
 - Import design rules in your EDA tool
+
+## Example Screenshot
+
+![Generator View](res/generator.png)
 
 # Currently supported PCB manufacturing services
 
