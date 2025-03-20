@@ -14,7 +14,7 @@ registerService(
                     const iconInterval = setInterval(() => {
                         if (countdown <= 0) {
                             clearInterval(iconInterval);
-                            browser.action.setIcon({ path: "icons/icon.png" });
+                            browser.action.setIcon({ path: "res/icons/icon.png" });
                         } else {
                             browser.action.setIcon({ path: `services/jlcpcb/res/favicon/favicon_${countdown}.png` });
                             countdown -= 10;
@@ -388,78 +388,120 @@ registerService(
                     // https://jlcpcb.com/help/article/User-Guide-to-the-JLCPCB-Impedance-Calculator
 
                     material1to8layers = {
-                        // core
                         "FR4-Standard TG 135-140": {
-                            "name": "Undefined (FR4-Standard TG 135-140)",
-                            "thickness": {
-                                "1.065": { "epsilon_r": 0, "loss_tangent": 0 }, // no values defined from JLCPCB
-                                "1.6": { "epsilon_r": 0, "loss_tangent": 0 } // no values defined from JLCPCB
+                            "core": {
+                                "name": "Undefined (FR4-Standard TG 135-140)",
+                                "thickness": {
+                                    "1.6": { "epsilon_r": 0, "loss_tangent": 0 } // no values defined from JLCPCB
+                                }
+                            },
+                            "prepreg": {
+                                "1080*1": {
+                                    "name": "Undefined 1080*1", "thickness": {
+                                        [3.3 * MIL]: { "epsilon_r": 0, "loss_tangent": 0 }
+                                    }
+                                },
+                                "2116*1": {
+                                    "name": "Undefined 2116*1", "thickness": {
+                                        [4.9 * MIL]: { "epsilon_r": 0, "loss_tangent": 0 }
+                                    }
+                                },
+                                "3313*1": {
+                                    "name": "Undefined 3313*1", "thickness": {
+                                        [4.2 * MIL]: { "epsilon_r": 0, "loss_tangent": 0 }
+                                    }
+                                },
+                                "7628*1": {
+                                    "name": "Undefined 7628*1", "thickness": {
+                                        [8.6 * MIL]: { "epsilon_r": 0, "loss_tangent": 0 },
+                                    }
+                                }
                             }
                         },
                         "FR-4 TG155": {
-                            "name": "Nan Ya Plastics NP-155F (FR-4 TG155)",
-                            "thickness": {
-                                "0.08": { "epsilon_r": 3.99, "loss_tangent": 0.02 },
-                                "0.1": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.13": { "epsilon_r": 4.17, "loss_tangent": 0.02 },
-                                "0.15": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.2": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.25": { "epsilon_r": 4.23, "loss_tangent": 0.02 },
-                                "0.3": { "epsilon_r": 4.41, "loss_tangent": 0.02 },
-                                "0.35": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.4": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.45": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.5": { "epsilon_r": 4.48, "loss_tangent": 0.02 },
-                                "0.55": { "epsilon_r": 4.41, "loss_tangent": 0.02 },
-                                "0.6": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.65": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
-                                "0.7": { "epsilon_r": 4.53, "loss_tangent": 0.02 },
-                                ">0.7": { "epsilon_r": 4.43, "loss_tangent": 0.02 }
-                            }
-                        },
-                        // prepreg
-                        "1080*1": {
-                            "name": "Nan Ya Plastics NP-155F 1080*1", "thickness": {
-                                [3.3 * MIL]: { "epsilon_r": 3.91, "loss_tangent": 0.02 }
-                            }
-                        },
-                        "2116*1": {
-                            "name": "Nan Ya Plastics NP-155F 2116*1", "thickness": {
-                                [4.9 * MIL]: { "epsilon_r": 4.16, "loss_tangent": 0.02 }
-                            }
-                        },
-                        "3313*1": {
-                            "name": "Nan Ya Plastics NP-155F 3313*1", "thickness": {
-                                [4.2 * MIL]: { "epsilon_r": 4.1, "loss_tangent": 0.02 }
-                            }
-                        },
-                        "7628*1": {
-                            "name": "Nan Ya Plastics NP-155F 7628*1", "thickness": {
-                                [8.6 * MIL]: { "epsilon_r": 4.4, "loss_tangent": 0.02 }, // 8.6mil = 0.21844
-                                "0.2104": { "epsilon_r": 4.4, "loss_tangent": 0.02 }  // 0.2104 around 8.6mil
+                            "core": {
+                                "name": "Nan Ya Plastics NP-155F (FR-4 TG155)",
+                                "thickness": {
+                                    "0.08": { "epsilon_r": 3.99, "loss_tangent": 0.02 },
+                                    "0.1": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.13": { "epsilon_r": 4.17, "loss_tangent": 0.02 },
+                                    "0.15": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.2": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.25": { "epsilon_r": 4.23, "loss_tangent": 0.02 },
+                                    "0.3": { "epsilon_r": 4.41, "loss_tangent": 0.02 },
+                                    "0.35": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.4": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.45": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.5": { "epsilon_r": 4.48, "loss_tangent": 0.02 },
+                                    "0.55": { "epsilon_r": 4.41, "loss_tangent": 0.02 },
+                                    "0.6": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.65": { "epsilon_r": 4.36, "loss_tangent": 0.02 },
+                                    "0.7": { "epsilon_r": 4.53, "loss_tangent": 0.02 },
+                                    "0.71": { "epsilon_r": 4.43, "loss_tangent": 0.02 } // >0.7
+                                }
+                            },
+                            "prepreg": {
+                                "1080*1": {
+                                    "name": "Nan Ya Plastics NP-155F 1080", "thickness": {
+                                        [3.3 * MIL]: { "epsilon_r": 3.91, "loss_tangent": 0.02 }
+                                    }
+                                },
+                                "2116*1": {
+                                    "name": "Nan Ya Plastics NP-155F 2116", "thickness": {
+                                        [4.9 * MIL]: { "epsilon_r": 4.16, "loss_tangent": 0.02 }
+                                    }
+                                },
+                                "3313*1": {
+                                    "name": "Nan Ya Plastics NP-155F 3313", "thickness": {
+                                        [4.2 * MIL]: { "epsilon_r": 4.1, "loss_tangent": 0.02 }
+                                    }
+                                },
+                                "7628*1": {
+                                    "name": "Nan Ya Plastics NP-155F 7628", "thickness": {
+                                        [8.6 * MIL]: { "epsilon_r": 4.4, "loss_tangent": 0.02 },
+                                    }
+                                }
                             }
                         }
                     };
 
                     material10pluslayers = {
-                        // core
-                        "FR-4 TG170": {
-                            "name": "SYTECH (Shengyi) S1000-2M (FR-4 TG170)",
-                            "thickness": {
-                                "0.075": { "epsilon_r": 4.14, "loss_tangent": 0.018 },
-                                "0.1": { "epsilon_r": 4.11, "loss_tangent": 0.018 },
-                                "0.13": { "epsilon_r": 4.03, "loss_tangent": 0.018 },
-                                "0.15": { "epsilon_r": 4.35, "loss_tangent": 0.018 },
-                                "0.2": { "epsilon_r": 4.42, "loss_tangent": 0.018 },
-                                "0.25": { "epsilon_r": 4.29, "loss_tangent": 0.018 },
-                                "0.3": { "epsilon_r": 4.56, "loss_tangent": 0.018 }
+                        "core": {
+                            "FR-4 TG170": {
+                                "name": "SYTECH (Shengyi) S1000-2M (FR-4 TG170)",
+                                "thickness": {
+                                    "0.075": { "epsilon_r": 4.14, "loss_tangent": 0.018 },
+                                    "0.1": { "epsilon_r": 4.11, "loss_tangent": 0.018 },
+                                    "0.13": { "epsilon_r": 4.03, "loss_tangent": 0.018 },
+                                    "0.15": { "epsilon_r": 4.35, "loss_tangent": 0.018 },
+                                    "0.2": { "epsilon_r": 4.42, "loss_tangent": 0.018 },
+                                    "0.25": { "epsilon_r": 4.29, "loss_tangent": 0.018 },
+                                    "0.3": { "epsilon_r": 4.56, "loss_tangent": 0.018 }
+                                }
                             }
                         },
-                        // prepreg
-                        "106*1": { "name": "SYTECH (Shengyi) S1000-2M 106", "thickness": { [1.97 * MIL]: { "epsilon_r": 3.92, "loss_tangent": 0.018 } } },
-                        "1080*1": { "name": "SYTECH (Shengyi) S1000-2M 1080", "thickness": { [3.31 * MIL]: { "epsilon_r": 3.99, "loss_tangent": 0.018 } } },
-                        "2313*1": { "name": "SYTECH (Shengyi) S1000-2M 2313", "thickness": { [4.09 * MIL]: { "epsilon_r": 4.31, "loss_tangent": 0.018 } } },
-                        "2116*1": { "name": "SYTECH (Shengyi) S1000-2M 2116", "thickness": { [5.00 * MIL]: { "epsilon_r": 4.29, "loss_tangent": 0.018 } } }
+                        "prepreg": {
+                            "106*1": {
+                                "name": "SYTECH (Shengyi) S1000-2M 106", "thickness": {
+                                    [1.97 * MIL]: { "epsilon_r": 3.92, "loss_tangent": 0.018 }
+                                }
+                            },
+                            "1080*1": {
+                                "name": "SYTECH (Shengyi) S1000-2M 1080", "thickness": {
+                                    [3.31 * MIL]: { "epsilon_r": 3.99, "loss_tangent": 0.018 }
+                                }
+                            },
+                            "2313*1": {
+                                "name": "SYTECH (Shengyi) S1000-2M 2313", "thickness": {
+                                    [4.09 * MIL]: { "epsilon_r": 4.31, "loss_tangent": 0.018 }
+                                }
+                            },
+                            "2116*1": {
+                                "name": "SYTECH (Shengyi) S1000-2M 2116", "thickness": {
+                                    [5.00 * MIL]: { "epsilon_r": 4.29, "loss_tangent": 0.018 }
+                                }
+                            }
+                        }
                     };
 
                     if (stencilLayer < 10) {
@@ -473,6 +515,7 @@ registerService(
                     //if (searchRecursive(jlcpcb.quoteData, "configOptionShow", "FR4-Standard TG 135-140")) {
                     if (searchRecursive(jlcpcb.quoteData, "configOptionAccessId", "8b0ffaca40684210985ec62922ea2bf0")) {
                         coreMaterial = "FR4-Standard TG 135-140";
+                        json.log.warnings.push("JLC does not specify Epsilon R and Loss Tan for FR4-Standard TG 135-140");
                         //} else if (searchRecursive(jlcpcb.quoteData, "configOptionShow", "FR-4 TG155")) {
                     } else if (searchRecursive(jlcpcb.quoteData, "configOptionAccessId", "78e09a3a83fb420191b3ee4ba4b825e9")) {
                         coreMaterial = "FR-4 TG155";
@@ -486,25 +529,81 @@ registerService(
                     }
 
                     function getEpsilonR(material, thickness) {
-                        try {
-                            return material.thickness[thickness].epsilon_r;
-                        } catch (error) {
-                            console.log('Epsilon R is undefined for ' + material.name + ' with thickness ' + thickness);
-                            json.log.errors.push('Epsilon R is undefined for ' + material.name + ' with thickness ' + thickness);
-                            //return material.thickness.default.epsilon_r;
-                            return -1;
+                        let epsilon_r = -1;
+                        const thicknessNum = parseFloat(thickness);
+                        let minDiff = Number.MAX_VALUE;
+                        let closestThickness = null;
+
+                        // Search through all thickness keys
+                        for (let key in material.thickness) {
+                            const keyNum = parseFloat(key);
+                            if (!isNaN(keyNum)) {
+                                const diff = Math.abs(keyNum - thicknessNum);
+                                if (diff < minDiff) {
+                                    minDiff = diff;
+                                    closestThickness = key;
+                                    epsilon_r = material.thickness[key].epsilon_r;
+                                }
+                            }
                         }
+
+                        // Add warning about thickness difference if needed
+                        if (minDiff > 0.001) { // More than 1um difference
+                            if (!json.log.warnings) {
+                                json.log.warnings = [];
+                            }
+                            json.log.warnings.push(`Using Epsilon R=${epsilon_r} from thickness=${closestThickness}mm for requested thickness=${thickness}mm (diff=${minDiff.toFixed(3)}mm)`);
+                        }
+
+                        return epsilon_r;
+
+                        //try {
+                        //    return material.thickness[thickness].epsilon_r;
+                        //} catch (error) {
+                        //    console.log('Epsilon R is undefined for ' + material.name + ' with thickness ' + thickness);
+                        //    json.log.errors.push('Epsilon R is undefined for ' + material.name + ' with thickness ' + thickness);
+                        //    //return material.thickness.default.epsilon_r;
+                        //    return -1;
+                        //}
                     }
 
                     function getLossTangent(material, thickness) {
-                        try {
-                            return material.thickness[thickness].loss_tangent;
-                        } catch (error) {
-                            console.log('Loss Tangent is undefined for ' + material.name + ' with thickness ' + thickness);
-                            json.log.errors.push('Loss Tangent is undefined for ' + material.name + ' with thickness ' + thickness);
-                            //return material.thickness.default.loss_tangent;
-                            return -1;
+                        let loss_tangent = -1;
+                        const thicknessNum = parseFloat(thickness);
+                        let minDiff = Number.MAX_VALUE;
+                        let closestThickness = null;
+
+                        // Search through all thickness keys
+                        for (let key in material.thickness) {
+                            const keyNum = parseFloat(key);
+                            if (!isNaN(keyNum)) {
+                                const diff = Math.abs(keyNum - thicknessNum);
+                                if (diff < minDiff) {
+                                    minDiff = diff;
+                                    closestThickness = key;
+                                    loss_tangent = material.thickness[key].loss_tangent;
+                                }
+                            }
                         }
+
+                        // Add warning about thickness difference if needed
+                        if (minDiff > 0.001) { // More than 1um difference
+                            if (!json.log.warnings) {
+                                json.log.warnings = [];
+                            }
+                            json.log.warnings.push(`Using Loss Tan=${loss_tangent} from thickness=${closestThickness}mm for requested thickness=${thickness}mm (diff=${minDiff.toFixed(3)}mm)`);
+                        }
+
+                        return loss_tangent;
+
+                        //try {
+                        //    return material.thickness[thickness].loss_tangent;
+                        //} catch (error) {
+                        //    console.log('Loss Tangent is undefined for ' + material.name + ' with thickness ' + thickness);
+                        //    json.log.errors.push('Loss Tangent is undefined for ' + material.name + ' with thickness ' + thickness);
+                        //    //return material.thickness.default.loss_tangent;
+                        //    return -1;
+                        //}
                     }
 
                     const layerSplicePosition = -3; // middle of predefined layer array
@@ -520,9 +619,9 @@ registerService(
                                 [`"dielectric 1"`]: {
                                     "type": "\"core\"",
                                     "thickness": stencilPly,
-                                    "material": "\"" + material[coreMaterial].name + "\"",
-                                    "epsilon_r": getEpsilonR(material[coreMaterial], stencilPly),
-                                    "loss_tangent": getLossTangent(material[coreMaterial], stencilPly)
+                                    "material": "\"" + material[coreMaterial].core.name + "\"",
+                                    "epsilon_r": getEpsilonR(material[coreMaterial].core, stencilPly),
+                                    "loss_tangent": getLossTangent(material[coreMaterial].core, stencilPly)
                                 }
                             },
                             {
@@ -577,9 +676,11 @@ registerService(
                                         //console.log(laminat.preMaterialType);
                                         if (laminat.preLayer == "Prepreg") {
                                             preMaterialType = laminat.preMaterialType.trim();
+                                            preMaterial = material[coreMaterial].prepreg[preMaterialType];
                                             preLayerType = "prepreg";
                                         } else if (laminat.preLayer == "Core") {
                                             preMaterialType = coreMaterial;
+                                            preMaterial = material[coreMaterial].core;
                                             preLayerType = "core";
                                         } else {
                                             json.log.errors.push("Unknown layer type");
@@ -597,9 +698,9 @@ registerService(
                                             }
                                             lastLayer["sublayer"].push({
                                                 "thickness": thickness,
-                                                "material": "\"" + material[preMaterialType].name + "\"",
-                                                "epsilon_r": getEpsilonR(material[preMaterialType], thickness),
-                                                "loss_tangent": getLossTangent(material[preMaterialType], thickness)
+                                                "material": "\"" + preMaterial.name + "\"",
+                                                "epsilon_r": getEpsilonR(preMaterial, thickness),
+                                                "loss_tangent": getLossTangent(preMaterial, thickness)
                                             });
                                             if (preLayerType == "core") {
                                                 lastLayer["type"] = '"core"';
@@ -610,9 +711,9 @@ registerService(
                                                     [`"dielectric ${dielectric}"`]: {
                                                         "type": "\"" + preLayerType + "\"",
                                                         "thickness": thickness,
-                                                        "material": "\"" + material[preMaterialType].name + "\"",
-                                                        "epsilon_r": getEpsilonR(material[preMaterialType], thickness),
-                                                        "loss_tangent": getLossTangent(material[preMaterialType], thickness)
+                                                        "material": "\"" + preMaterial.name + "\"",
+                                                        "epsilon_r": getEpsilonR(preMaterial, thickness),
+                                                        "loss_tangent": getLossTangent(preMaterial, thickness)
                                                     }
                                                 });
                                             dielectric = dielectric + 1;
@@ -645,9 +746,9 @@ registerService(
                                                         [`"dielectric ${dielectric}"`]: {
                                                             "type": "\"core\"",
                                                             "thickness": thickness,
-                                                            "material": "\"" + material[coreMaterial].name + "\"",
-                                                            "epsilon_r": getEpsilonR(material[coreMaterial], thickness),
-                                                            "loss_tangent": getLossTangent(material[coreMaterial], thickness)
+                                                            "material": "\"" + material[coreMaterial].core.name + "\"",
+                                                            "epsilon_r": getEpsilonR(material[coreMaterial].core, thickness),
+                                                            "loss_tangent": getLossTangent(material[coreMaterial].core, thickness)
                                                         }
                                                     });
                                                 dielectric = dielectric + 1;
@@ -693,6 +794,7 @@ registerService(
                         })
                         .then(response => response.json())
                         .then(data => {
+                            //downloadFile(data, "getImpedanceTemplateSettings.json");
                             const zip = new JSZip();
                             zip.file("getImpedanceTemplateSettings", JSON.stringify(data));
                             zip.generateAsync({ type: "blob" }).then(function (content) {
