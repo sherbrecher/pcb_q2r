@@ -146,8 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }).then(response => {
                         if (response.status === 'success') {
                             let html = "Generation successful!";
-                            for (let i = 0; i < response.data.service.warnings.length; i++) {
-                                html += "\r\n" + response.data.service.warnings[i];
+
+                            if (response.data.service.warnings.length > 0) {
+                                html += "\r\n\r\nWarnings:";
+                                for (let i = 0; i < response.data.service.warnings.length; i++) {
+                                    html += "\r\n" + response.data.service.warnings[i];
+                                }
                             }
                             resultText.innerText = html;
                         } else {
@@ -155,16 +159,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             let html = "Generation failed!";
 
-                            if (response.data.service.warnings.length > 0) {
-                                html += "\r\nWarnings:";
-                                for (let warning in response.data.service.warnings) {
-                                    html += "\r\n" + response.data.service.warnings[warning];
-                                }
-                            }
                             if (response.data.service.errors.length > 0) {
-                                html += "\r\nErrors:";
+                                html += "\r\n\r\nErrors:";
                                 for (let error in response.data.service.errors) {
                                     html += "\r\n" + response.data.service.errors[error];
+                                }
+                            }
+
+                            if (response.data.service.warnings.length > 0) {
+                                html += "\r\n\r\nWarnings:";
+                                for (let warning in response.data.service.warnings) {
+                                    html += "\r\n" + response.data.service.warnings[warning];
                                 }
                             }
 
