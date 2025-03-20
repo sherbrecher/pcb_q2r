@@ -10,8 +10,8 @@ FILES="edas/kicad/res/logo.png \
        edas/kicad/res/template.kicad_pro \
        edas/kicad/res/template.kicad_sch \
        edas/kicad/kicad.js \
-       icons/icon.png \
        lib/jszip.min.js \
+       res/icons/icon.png \
        services/jlcpcb/res/favicon \
        services/jlcpcb/res/logo.png \
        services/jlcpcb/jlcpcb.js \
