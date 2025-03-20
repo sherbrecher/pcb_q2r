@@ -14,7 +14,7 @@ registerService(
                     const iconInterval = setInterval(() => {
                         if (countdown <= 0) {
                             clearInterval(iconInterval);
-                            browser.action.setIcon({ path: "icons/icon.png" });
+                            browser.action.setIcon({ path: "res/icons/icon.png" });
                         } else {
                             browser.action.setIcon({ path: `services/pcbway/res/favicon/favicon_${countdown}.png` });
                             countdown -= 10;
@@ -330,7 +330,7 @@ registerService(
                             }
 
                             if (boardItems.length > 1) {
-                                json.log.warnings.push("Multiple stackups found. Using the one with the largest inner layer Residual copper ratio of " + maxInnerCopperArea + "%");
+                                json.log.warnings.push("Multiple stackups found. Using the one with the largest inner layer Residual copper ratio of " + maxInnerCopperArea);
                             }
 
                             const doc = parser.parseFromString(boardItems[idxMaxInnerCopperArea].innerHTML, 'text/html');
