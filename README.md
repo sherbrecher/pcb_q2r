@@ -45,9 +45,8 @@ To report a problem or a security vulnerability please [raise an issue](https://
 - Click "Generate & Download"
 - Import design rules in your EDA tool
 
-## Example Screenshot
-
-![Generator View](res/generator.png)
+## Generator Example Screenshot
+<img src="res/generator.png" width="50%">
 
 # Currently supported PCB manufacturing services
 
@@ -75,6 +74,8 @@ To report a problem or a security vulnerability please [raise an issue](https://
 
 # ToDos
 
+- Add default via sizes and trace width based on configured rules
+- Maybe add default differential traces with precalculated impedance values
 - Create PDF, HTML or similar of configured quote and store in created design rules package for traceability
 - Add possibility to reopen preconfigured quote afterwards (however this can be done)
 - Add more PCB manufacturing services
