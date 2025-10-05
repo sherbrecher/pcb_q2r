@@ -1,6 +1,6 @@
 registerService(
     "jlcpcb", // name
-    "https://cart.jlcpcb.com/api/overseas-shop-cart/v1/shoppingCart/calculationGoodsCostsNew", // url
+    "https://cart.jlcpcb.com/api/overseas-core-platform/shoppingCart/calculationGoodsCostsNew", // url
     (details) => { // handler
         if (details.method === "POST" && details.requestBody) {
             function storeQuote(jlcpcb, quote) {
@@ -683,7 +683,7 @@ registerService(
                                             preMaterial = material[coreMaterial].core;
                                             preLayerType = "core";
                                         } else {
-                                            json.log.errors.push("Unknown layer type");
+                                            json.log.errors.push("Unknown layer type: " + laminat.preLayer);
                                             resolve(json);
                                             return;
                                         }
@@ -728,7 +728,7 @@ registerService(
                                         while ("coreBoardLayer" + n in laminat) {
                                             //console.log("coreBoardLayer" + n);
 
-                                            if (laminat["coreBoardLayer" + n] == "inner Layer") {
+                                            if (laminat["coreBoardLayer" + n].includes("Inner Layer")) {
                                                 json.pcb.setup.stackup.layer.splice(layerSplicePosition, 0,
                                                     {
                                                         [`"${prefix}${innerLayer}.Cu"`]: {
@@ -753,7 +753,7 @@ registerService(
                                                     });
                                                 dielectric = dielectric + 1;
                                             } else {
-                                                json.log.errors.push("Unknown layer type");
+                                                json.log.errors.push("Unknown layer type: " + laminat["coreBoardLayer" + n] + " for core layer " + n);
                                                 resolve(json);
                                                 return;
                                             }
@@ -779,7 +779,7 @@ registerService(
             function decodeStep1(jlcpcb) {
                 console.log("JLCPCB decode step 1");
                 if (jlcpcb.stackupData == null) {
-                    fetch("https://jlcpcb.com/api/overseas-shop-cart/v1/shoppingCart/getImpedanceTemplateSettings",
+                    fetch("https://jlcpcb.com/api/overseas-core-platform/shoppingCart/getImpedanceTemplateSettings",
                         {
                             "method": "POST",
                             "headers": {
